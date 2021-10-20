@@ -3,6 +3,13 @@ import React from 'react'
 // import { styled } from "@material-ui/core"
 import styled from 'styled-components';
 import {mobile} from '../responsive'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    Redirect
+  } from "react-router-dom";
 const Container = styled.div`
     flex:1; 
     margin:3px;
@@ -47,11 +54,13 @@ const CategoryItem = ({item}) =>{
     console.log('item--->',item);
     return (
         <Container>
-            <Image src={item.img}/>
+            <Link to={`/products/${item.cat}`}>
+                <Image src={item.img}/>
                 <Info>
                     <Title>{item.title}</Title>
                     <Button>SHOP NOW</Button>
                 </Info>
+            </Link>  
         </Container>
     )
 }
